@@ -14,6 +14,21 @@
 
 Auth::routes();
 
+Route::resource('/contacts', 'ContactController');
+
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('/contacts', 'ContactController');
+Route::get('/contact','ContactController@index')->name('contact.post');
+
+Route::get('/Addcontact', 'ContactController@create')->name('contact.create');
+
+Route::get('/Modifycontact', 'ContactController@edit')->name('contact.modify');
+
+Route::post('/Addcontact', 'ContactController@create')->name('contact.create');
+
+Route::post('/CreateContact', 'ContactController@store')->name('contact.store');
+
+Route::delete('/deletecontact', 'ContactController@destroy')->name('contact.destroy');
+
+
+
